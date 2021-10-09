@@ -6,9 +6,11 @@ import java.util.Arrays;
 
 //Make sure this class is public
 public class GuitarString {
-    /** Constants. Do not change. In case you're curious, the keyword final means
+    /**
+     * Constants. Do not change. In case you're curious, the keyword final means
      * the values cannot be changed at runtime. We'll discuss this and other topics
-     * in lecture on Friday. */
+     * in lecture on Friday.
+     */
     private static final int SR = 44100;      // Sampling Rate
     private static final double DECAY = .996; // energy decay factor
 
@@ -21,7 +23,7 @@ public class GuitarString {
         //       cast the result of this division operation into an int. For better
         //       accuracy, use the Math.round() function before casting.
         //       Your buffer should be initially filled with zeros.
-        buffer = new ArrayRingBuffer<Double>((int)Math.round(SR / frequency));
+        buffer = new ArrayRingBuffer<Double>((int) Math.round(SR / frequency));
         while (!buffer.isFull()) {
             buffer.enqueue(0.0);
         }
@@ -44,7 +46,7 @@ public class GuitarString {
     }
 
     /* Advance the simulation one time step by performing one iteration of
-     * the Karplus-Strong algorithm. 
+     * the Karplus-Strong algorithm.
      */
     public void tic() {
         // TODO: Dequeue the front sample and enqueue a new sample that is
